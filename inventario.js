@@ -135,6 +135,7 @@ class Inventario{
                del=v_primero_s;
                del.siguiente=null;
                del.anterior=null;
+               this.cont--;
                return true;
            }else{
                v_primero=v_primero_s;
