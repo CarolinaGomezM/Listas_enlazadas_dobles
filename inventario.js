@@ -34,8 +34,15 @@ class Inventario{
 
     añadir(producto){
         let temp=null;
+        let bproducto = this.buscar(producto);
+        if(bproducto != null){
+            return false;
+        }
         if(this.primero==null){
             this.primero=producto;
+            this.ultimo = producto;
+            this.primero.anterior = null;
+            this.primero.siguiente = null;
             this.cont++;
             return true;
         }else if(producto.obtenerCodigo() < this.primero.obtenerCodigo()){
@@ -50,6 +57,7 @@ class Inventario{
             while(temp.siguiente!=null && temp.obtenerCodigo() < producto.obtenerCodigo()){
                 temp=temp.siguiente;
             }
+            console.log(temp);
             if(producto.obtenerCodigo() < temp.obtenerCodigo()){
                 producto.siguiente=temp;
                 producto.anterior=temp.anterior;
